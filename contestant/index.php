@@ -48,8 +48,8 @@
 					</div>
 					<ul>
 						<li><a href="edit-school-name">Edit school name</a></li>
-						<li><a href="#">Edit school location</a></li>
-						<li><a href="#">Change password</a></li>
+						<li><a href="edit-school-location">Edit school location</a></li>
+						<li><a href="change-password">Change password</a></li>
 						<li><a href="#">Delete account</a></li>
 					</ul>
 				</div>
