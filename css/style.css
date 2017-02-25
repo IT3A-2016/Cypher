@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400|Roboto+Slab:400,700');
+body{
+	margin-bottom: -80px;
+}
+h1, h2, h3, h4, h5, h6{
+  font-family: 'Roboto Slab', sans-serif;
+	font-weight: 400;
+}
+.nav_index, .nav_all{
+  width: 100%;
+  height: 80px;
+  margin: -8px -8px 0;
+  position: fixed;
+  z-index: 1;
+}
+.nav_index{
+  background-color: rgba(255, 255, 255, 0.8);
+}
+.nav_all{
+  background-color: #3b2f55;
+}
+.logo{
+  height: 30px;
+  margin: 28px 0 0 8%;
+  float: left;
+}
+.menu{
+  margin: 0 8% 0 0;
+  float: right;
+}
+.menu ul{
+  list-style: none;
+}
+.menu ul li{
+  display: inline-block;
+  margin: 5px 18px;
+  transition: .3s all linear;
+  -webkit-transition: .3s all linear;
+  -moz-transition: .3s all linear;
+}
+.menu ul li a.menu_a{
+  color: #3b2f55;
+  text-decoration: none;
+  display: block;
+  position: relative;
+  padding: 6px 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+}
+.menu ul li a.menu_a:hover{
+  border-bottom: 2px solid #3b2f55;
+}
+.menu ul li a.menu_login_btn{
+  color: #fff;
+  padding: 14px 20px;
+  background-color: #3b2f55;
+  text-decoration: none;
+  display: block;
+  position: relative;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+}
+.menu ul li a.menu_login_btn:hover{
+  background-color: #202020;
+}
+.cont{
+  width: 100%;
+  display: block;
+}
+header{
+  height: 450px;
+  min-height: 100%;
+  margin: -8px -8px 0;
+  background-image: url("../images/header.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.title_all{
+  min-height: 100px;
+  padding: 100px 0 0;
+  display: block;
+}
+.title_dashboard{
+  min-height: 100px;
+  padding: 100px 8% 0;
+  display: block;
+}
+.title_dashboard span, .title_dashboard p{
+	font-family: "Montserrat", sans-serif;
+	font-size: 15px;
+	font-weight: 300;
+}
+.title_dashboard span a{
+	text-decoration: none;
+	color: #3b2f55;
+}
+.short_line{
+  height: 3px;
+  width: 50px;
+  background-color: #3b2f55;
+  margin: 0 auto;
+}
+.body_content, .body_content_dash{
+  min-height: 300px;
+  padding: 50px 8px;
+}
+.body_content_dash{
+	padding: 30px 8% !important;
+}
+.in_form, .in_form_drop{
+  width: 96%;
+  height: 44px;
+  margin: 0 0 24px;
+  border: 1px solid #3b2f55;
+  border-radius: 4px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+	padding: 0 2%;
+}
+.in_form:focus, .in_form:valid,
+.in_form_drop:focus, .in_form_drop:valid{
+  border: 2px solid #3b2f55;
+}
+.in_form_drop{
+	width: 100% !important;
+  height: 48px !important;
+}
+.submit_btn{
+  width: 100%;
+  height: 50px;
+  margin: 20px 0;
+  background-color: #3b2f55;
+  border: 0;
+  line-height: 40px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  letter-spacing: 1.5px;
+  color: #fff;
+  cursor: pointer;
+}
+.note{
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+}
+.note a{
+  text-decoration: none;
+  color: #3b2f55;
+}
+.sub_head_dash{
+	width: 100%;
+	height: 40px;
+	margin: 20px 0;
+	background-color: #ddd5f0;
+	font-family: "Montserrat", sans-serif;
+	font-size: 16px;
+	line-height: 40px;
+	text-align: center;
+}
+.body_content_dash ul{
+	list-style: none;
+	padding-left: 0;
+}
+.body_content_dash ul li a{
+	color: #3b2f55;
+  text-decoration: none;
+	font-family: "Montserrat", sans-serif;
+	font-size: 14px;
+	font-weight: 300;
+	line-height: 24px;
+}
+.body_content_dash ul li a:hover{
+	border-bottom: 1px solid #3b2f55;
+}
+footer{
+  min-height: 80px;
+  background-color: #ebebeb;
+  padding: 20px 8%;
+  bottom: 0;
+  margin: 0 -8px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  color: #3a3a3a;
+}
+.footer_right{
+  float: right;
+}
+.footer_right ul{
+  list-style: none;
+}
+.footer_right ul li{
+  display: inline-block;
+}
+.footer_right ul li a.footer_menu{
+  color: #3b2f55;
+  text-decoration: none;
+  display: block;
+  position: relative;
+  margin: 0 10px;
+}
+.footer_right ul li a.footer_menu:hover{
+  border-bottom: 1px solid #3b2f55;
+}

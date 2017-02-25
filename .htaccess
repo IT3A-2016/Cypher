@@ -1,0 +1,8 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine on
+  RewriteRule ^([a-z]+)\/([0-9]+)\/?$ parameter_letter_and_number.php?param=$1&param2=$2 [NC,L]
+  RewriteRule ^([a-z-]+)\/?$ $1.php [NC,L]
+  RewriteRule ^([0-9]+)\/?$ parameter_number.php?param=$1 [NC,L]
+  RewriteRule ^([0-9_]+)\/?$ parameter_number_and_underscore.php?param=$1 [NC,L]
+  RewriteRule ^[A-Za-z-]+/([A-Za-z0-9-]+)/?$ parameter_get_name.php?param=$1 [NC,L]
+</IfModule>
