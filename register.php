@@ -21,7 +21,6 @@
 		$email=stripslashes($email);
 		$password=stripslashes($password);
 		$confirm_password=stripslashes($confirm_password);
-    $school=ucwords($school);
 
 		$host_regdate=date("Y-m-d H:i:s");
 
@@ -51,76 +50,63 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Register | InterQuiz</title>
+  <title>Register &mdash; InterQuiz</title>
   <link rel="stylesheet" type="text/css" href="css/style.css" />
-  <link rel="stylesheet" type="text/css" href="css/flexboxgrid.min.css" />
 </head>
 <body>
-  <nav class="nav_all">
-    <div class="logo">
-      <a href="./"><img src="images/interquiz-logo-design-white.png" style="height:100%"/></a>
-    </div>
-  </nav>
   <div class="cont">
-    <div class="title_all center-xs">
-      <h1>SIGN UP</h1>
-      <div class="short_line"></div>
-    </div>
-    <div class="body_content container-fluid">
+    <div class="body_content">
+			<div class="logo_all">
+	      <a href="./"><img src="images/interquiz-logo-design.png" style="height:100%"/></a>
+	    </div>
+			<div class="note row center error">
+				<?php
+					if(isset($note)){ echo "<p>" .$note. "</p>"; }
+					if(isset($email_error)){ echo "<p>" .$email_error. "</p>"; }
+					if(isset($password_error)){ echo "<p>" .$password_error. "</p>"; }
+					if(isset($confirm_password_error)){ echo "<p>" .$confirm_password_error. "</p>"; }
+				?>
+			</div>
       <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-        <div class="row center-xs">
-          <div class="col-sm-4">
-            <input class="in_form" type="text" name="school" placeholder="School" required />
-          </div>
+        <div class="row">
+					<input class="in_form" type="text" name="school" placeholder="School" required />
         </div>
-        <div class="row center-xs">
-          <div class="col-sm-4">
-            <input class="in_form" type="text" name="email" placeholder="Email Address" required />
-          </div>
-        </div>
-        <div class="row center-xs">
-          <div class="col-sm-4">
-            <input class="in_form" type="text" name="username" placeholder="Username" required />
-          </div>
-        </div>
-        <div class="row center-xs">
-          <div class="col-sm-4">
-            <input class="in_form" type="password" name="password" placeholder="Password" required />
-          </div>
-        </div>
-        <div class="row center-xs">
-          <div class="col-sm-4">
-            <input class="in_form" type="password" name="confirm_password" placeholder="Confirm Password" required />
-          </div>
-        </div>
-        <div class="note row center-xs">
+        <div class="row">
+					<input class="in_form" type="text" name="email" placeholder="Email Address" required />
+				</div>
+        <div class="row">
+					<input class="in_form" type="text" name="username" placeholder="Username" required />
+				</div>
+        <div class="row">
+					<input class="in_form" type="password" name="password" placeholder="Password" required />
+				</div>
+        <div class="row">
+					<input class="in_form" type="password" name="confirm_password" placeholder="Confirm Password" required />
+				</div>
+        <div class="note row center">
           <div class="col-sm">
             <p>
               By clicking "Register", you agree to the <a href="#">Privacy Policy and Terms</a>.
             </p>
           </div>
         </div>
-        <div class="row center-xs">
-          <div class="col-sm-2">
-            <input class="submit_btn" type="submit" name="signup" value="REGISTER" required />
-          </div>
-        </div>
+        <div class="row">
+					<input class="in_form submit_btn" type="submit" name="signup" value="REGISTER" required />
+				</div>
       </form>
-      <div class="note row center-xs">
-        <div class="col-sm">
-          <p>
-            If you already have an account, log in <a href="login">here</a>.
-          </p>
-        </div>
+      <div class="note row center">
+        <p>
+          If you already have an account, log in <a href="login">here</a>.
+        </p>
       </div>
     </div>
-  </div>
-  <footer>
-    <div class="row between-xs">
-      <div class="col-xs-6 start-md">
-        <p>Cypher &#169; <?php echo date("Y"); ?>. All rights reserved.</p>
-      </div>
-      <div class="footer_right col-xs-6 end-md">
+
+	  <footer>
+	    <div class="footer_left">
+				<span>Cypher &#169; <?php echo date("Y"); ?>. All rights reserved.</span>
+			</div>
+			<span flex></span>
+      <div class="footer_right">
         <ul>
           <li><a class="footer_menu" href="#">About</a></li>
           <li><a class="footer_menu" href="#">Privacy Policy and Terms</a></li>
@@ -128,7 +114,7 @@
           <li><a class="footer_menu" href="#">Help</a></li>
         </ul>
       </div>
-    </div>
-  </footer>
+	  </footer>
+	</div>
 </body>
 </html>

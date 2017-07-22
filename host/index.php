@@ -11,89 +11,92 @@
 	$result=mysqli_query($connection, "SELECT * FROM host WHERE host_id='$host_id'");
 	$row=mysqli_fetch_assoc($result);
 
+	$count_result=mysqli_query($connection, "SELECT COUNT(*) quiz_count FROM quiz WHERE host_id='$host_id'");
+	$count_quiz=mysqli_fetch_assoc($count_result);
+
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Dashboard | InterQuiz</title>
-  <link rel="stylesheet" type="text/css" href="../css/style.css" />
-  <link rel="stylesheet" type="text/css" href="../css/flexboxgrid.min.css" />
+  <title>Overview &mdash; InterQuiz</title>
+  <link rel="stylesheet" type="text/css" href="../css/dashboard.css" />
+  <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css" />
+	<script src="../js/jquery-3.1.1.js" type="text/javascript"></script>
+	<script src="../js/host.js" type="text/javascript"></script>
 </head>
-<body>
-  <nav class="nav_all">
-    <div class="logo">
-      <a href="../"><img src="../images/interquiz-logo-design-white.png" style="height:100%"/></a>
-    </div>
-  </nav>
-  <div class="cont">
-    <div class="title_dashboard start-xs">
-      <h1><?php echo $row['host_school']; ?></h1>
-			<span>HOST SCHOOL</span>
-    </div>
-    <div class="body_content_dash container-fluid">
-			<div class="row">
-				<div class="col-xs-6">
-					<div class="sub_head_dash">
-						<span>CONTESTANT</span>
-					</div>
-					<ul>
-						<li><a href="#">Register contestant</a></li>
-						<li><a href="#">View contestants' details</a></li>
-						<li><a href="#">Edit contestants' details</a></li>
-						<li><a href="#">Remove contestant</a></li>
-					</ul>
+<body class="row">
+	<!-- Side nav -->
+	<div class="nav_dash col">
+		<div class="heading">
+			<div class="logo">
+	      <img src="../images/interquiz-logo-design.png" style="width:100%"/>
+	    </div>
+		</div>
+		<div class="menu_side">
+			<a class="link_sel" href="./"><i class="fa fa-paper-plane fa-fw fa-lg" aria-hidden="true"></i>OVERVIEW</a>
+			<a href="competitions"><i class="fa fa-pencil-square-o fa-fw fa-lg" aria-hidden="true"></i>COMPETITION</a>
+			<a href="settings"><i class="fa fa-cog fa-fw fa-lg" aria-hidden="true"></i>SETTINGS</a>
+		</div>
+		<span flex></span>
+		<div class="footer">
+			<a href="../logout"><i class="fa fa-sign-out fa-fw fa-lg" aria-hidden="true"></i>LOG OUT</a>
+		</div>
+	</div>
+	<!-- Main content -->
+	<div class="main col">
+		<div class="heading">
+			<span class="head_title">OVERVIEW</span>
+			<span flex></span>
+			<span class="head_sub"><i class="fa fa-user fa-fw" aria-hidden="true"></i><?php echo $row['host_username']; ?></span>
+		</div>
+
+		<div id="content_dash" class="content">
+			<div class="section section_full">
+				<div class="head_sec">
+					<p>
+						<?php
+							echo $row['host_school'];
+							if(!empty($row['host_school_acronym'])){
+								echo " (" .$row['host_school_acronym']. ")";
+							}
+						?>
+					</p>
+					<span>HOST SCHOOL</span>
 				</div>
-				<div class="col-xs-6">
-					<div class="sub_head_dash">
-						<span>COMPETITION PROPER</span>
+
+				<div class="body_sec row">
+					<div class="section_half">
+						<table class="no_margin">
+							<tr>
+								<td>School address</td>
+								<td><b>
+										<?php
+											if(empty($row['host_towncity']) || empty($row['host_provincestate']) || empty($row['host_country'])){
+												echo '<a class="def_link" href="settings">Set it up.</a>';
+											}
+											else{
+												echo $row['host_towncity']. ', ' .$row['host_provincestate']. ', ' .$row['host_country'];
+											}
+										?>
+								</b></td>
+							</tr>
+							<tr>
+								<td>Date registered</td>
+								<td><?php echo date_format(date_create($row['host_regdate']), "F d, Y, h:i A"); ?></td>
+							</tr>
+						</table>
 					</div>
-					<ul>
-						<li><a href="#">Create new quiz</a></li>
-						<li><a href="#">View upcoming competitions</a></li>
-						<li><a href="#">View closed competitions</a></li>
-						<li><a href="#">Show competition results</a></li>
-					</ul>
 				</div>
+
 			</div>
-			<div class="row">
-				<div class="col-xs-6">
-					<div class="sub_head_dash">
-						<span>COMPETITION SETTING</span>
-					</div>
-					<ul>
-						<li><a href="#">Set difficulty</a></li>
-						<li><a href="#">Set points and time duration for each difficulty</a></li>
-					</ul>
-				</div>
-				<div class="col-xs-6">
-					<div class="sub_head_dash">
-						<span>ACCOUNT SETTING</span>
-					</div>
-					<ul>
-						<li><a href="edit-school-name">Edit school name</a></li>
-						<li><a href="edit-school-location">Edit school location</a></li>
-						<li><a href="change-password">Change password</a></li>
-						<li><a href="#">Delete account</a></li>
-					</ul>
-				</div>
-			</div>
-      <a href="../logout">Log out</a>
-    </div>
-  </div>
-  <footer>
-    <div class="row between-xs">
-      <div class="col-xs-6 start-md">
-        <p>Cypher &#169; <?php echo date("Y"); ?>. All rights reserved.</p>
-      </div>
-      <div class="footer_right col-xs-6 end-md">
-        <ul>
-          <li><a class="footer_menu" href="#">About</a></li>
-          <li><a class="footer_menu" href="#">Privacy Policy and Terms</a></li>
-          <li><a class="footer_menu" href="#">Contact</a></li>
-          <li><a class="footer_menu" href="#">Help</a></li>
-        </ul>
-      </div>
-    </div>
-  </footer>
+		</div>
+
+		<span flex></span>
+
+		<div class="footer">
+			<span>Cypher &#169; <?php echo date("Y"); ?>. All rights reserved.</span>
+		</div>
+	</div>
 </body>
 </html>
